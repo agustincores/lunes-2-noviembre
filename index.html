@@ -38,7 +38,9 @@
     .stat span { color: var(--muted); font-size: 13px; }
     .stat.info b { color: var(--info); }
     .stat.ok b { color: var(--ok); }
-    .callout { background: var(--warning-bg); border: 1px solid #fde68a; padding: 14px 16px; margin-bottom: 28px; }
+    .callout { background: var(--warning-bg); border: 1px solid #fde68a; padding: 14px 16px; margin: 12px 0; }
+    .callout.info { background: var(--info-bg); border-color: #bfdbfe; }
+    p + p { margin-top: 8px; }
     .callout strong { display: block; margin-bottom: 6px; }
     section { margin: 28px 0; }
     .note { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
@@ -76,7 +78,7 @@
 <body>
 <main>
   <h1>Lunes 2 de noviembre, con el procesamiento de hoy</h1>
-  <p class="lead">A las 08:28 US104 llevaba 544 paquetes. Se suman 233 de hoy, el promedio de los últimos tres viernes. El lunes llegan 1.302: 525 del vuelo atrasado y 777 del viernes.</p>
+  <p class="lead">Hay dos vuelos para el mismo lunes: el atrasado, 525 paquetes, y el del viernes, 777. Primero está el mueble de hoy y a dónde va la carga. Después, cuánto se retira y qué pasa según cuándo se manda. La recomendación está al final.</p>
 
   <div class="stats">
     <div class="stat"><b>1.302</b><span>Paquetes que llegan el lunes</span></div>
@@ -86,7 +88,7 @@
   </div>
 
   <div class="callout">
-    <strong>Con los 233 de hoy, partir al miércoles no alcanza en tres sucursales</strong>
+    <strong>Salir todo el lunes no entra en nueve sucursales</strong>
     El número entre paréntesis es cuántos paquetes se pasan de la capacidad del mueble. Si los 1.302 salen todos el lunes, no entran Galería (39), Matrix (66), Multiplaza (38), Luque (24), San Lorenzo (10), Villa Morra (56), Palma (46), Pinoza (34) y Sajonia (17). Lambaré queda en 158 de 180. Mitad lunes y mitad martes sigue sin entrar en Galería, Matrix, Multiplaza, Luque, Villa Morra, Palma, Pinoza y Sajonia. Mitad lunes y mitad miércoles deja afuera a Villa Morra (21), Palma (19) y Pinoza (9). Matrix queda en 189 de 190.
   </div>
 
@@ -118,11 +120,12 @@
   </section>
 
   <section>
-    <h2>Clientes con paquetes en los dos vuelos</h2>
-    <p>Hay 122 clientes en los dos vuelos. Tienen 223 paquetes en el demorado, el 42% de los 525, y 202 en el viernes que ya está en Miami, el 37% de los 544. Si no van a buscar el del lunes hasta que el otro esté listo, el lunes no cambia. El miércoles quedan unos 119 paquetes más. Ahí también se pasan Multiplaza (13) y Luque (6). Galería sigue en 192 de 200.</p>
+    <h2>Quién tiene un paquete en cada vuelo</h2>
+    <p>122 personas tienen un paquete en el vuelo atrasado y otro en el del viernes. Si pasan una sola vez por la sucursal, lo hacen el miércoles, cuando ya están los dos. El del lunes queda dos días más en el mueble.</p>
+    <p class="note">Son 223 paquetes del vuelo atrasado, 4 de cada 10, y 202 del viernes que ya está en Miami, también cerca de 4 de cada 10. El lunes eso no mueve el mueble: el paquete igual llega. El miércoles hay unos 119 paquetes más de los que se habían contado como retirados. Ahí también se pasan Multiplaza (13) y Luque (6). Galería sigue en 192 de 200.</p>
     <table style="margin-top:12px">
       <thead>
-        <tr><th>Sucursal</th><th>Del demorado, clientes en ambos</th><th>Parte de ese vuelo en la sucursal</th></tr>
+        <tr><th>Sucursal</th><th>Paquetes del lunes de esta gente</th><th>Cuánto es del vuelo atrasado</th></tr>
       </thead>
       <tbody>
         <tr><td>Paseo La Galería</td><td>26</td><td>26 de 90 (29%)</td></tr>
@@ -137,7 +140,24 @@
         <tr><td>Sajonia</td><td>15</td><td>15 de 21 (71%)</td></tr>
       </tbody>
     </table>
-    <p class="fine">68 de esos 122 clientes tienen un solo paquete en el vuelo demorado. 22 clientes juntan 91 de los 223. Lo más sensible es Sajonia: 15 de sus 21 paquetes demorados son de alguien que también espera el otro vuelo. Villa Morra 22 de 40, Pinoza 15 de 28 y Palma 19 de 40. Los 233 estimados de hoy no entran en esta cuenta: a las 08:28 todavía no estaban en el lake. Un paquete de Matrix no tiene sucursal de entrega y está contado ahí.</p>
+    <table style="margin-top:12px">
+      <thead>
+        <tr><th>Sucursal</th><th>Capacidad</th><th>Miércoles si retiran</th><th>Miércoles si esperan los dos</th></tr>
+      </thead>
+      <tbody>
+        <tr class="warning"><td>Paseo La Galería</td><td>200</td><td>178 (89%)</td><td>192 (96%)</td></tr>
+        <tr class="danger"><td>La Matrix</td><td>190</td><td>203 (107%)</td><td>223 (117%)</td></tr>
+        <tr class="danger"><td>Multiplaza</td><td>150</td><td>146 (97%)</td><td>163 (109%)</td></tr>
+        <tr class="warning"><td>Lambaré</td><td>180</td><td>122 (68%)</td><td>136 (76%)</td></tr>
+        <tr class="danger"><td>Luque</td><td>120</td><td>114 (95%)</td><td>126 (105%)</td></tr>
+        <tr class="warning"><td>San Lorenzo</td><td>90</td><td>78 (87%)</td><td>83 (92%)</td></tr>
+        <tr class="danger"><td>Villa Morra</td><td>75</td><td>106 (141%)</td><td>118 (157%)</td></tr>
+        <tr class="danger"><td>Palma</td><td>60</td><td>81 (135%)</td><td>91 (152%)</td></tr>
+        <tr class="danger"><td>Pinoza</td><td>60</td><td>78 (130%)</td><td>86 (143%)</td></tr>
+        <tr class="danger"><td>Sajonia</td><td>60</td><td>65 (108%)</td><td>73 (122%)</td></tr>
+      </tbody>
+    </table>
+    <p class="fine">En Sajonia, 15 de 21 paquetes del lunes son de alguien que también espera el miércoles. Villa Morra 22 de 40, Pinoza 15 de 28 y Palma 19 de 40. 68 de las 122 personas tienen un solo paquete en el vuelo atrasado. 22 personas juntan 91 de esos 223. Los 233 de hoy todavía no tienen cliente, así que esta lista puede crecer. Un paquete de Matrix no tiene sucursal de entrega y está contado ahí.</p>
   </section>
 
   <section>
@@ -267,6 +287,11 @@
     </table>
     <p class="fine">El número entre paréntesis es la ocupación del mueble. “Todo el lunes” deja adentro los paquetes viejos que, por la edad, no salen antes de que entre la carga. Sajonia sigue en 60 a confirmar. Pinoza sigue en 60 hasta que abra el depósito de al lado. La fila en rojo se pasa de la capacidad si sale toda la carga el lunes. Lambaré queda por encima de la alarma del 60% y dentro del mueble.</p>
   </section>
+
+  <div class="callout info">
+    <strong>Recomendación</strong>
+    El lunes sale solo el vuelo atrasado, 525 paquetes. Las diez sucursales entran. Palma queda en 57 de 60, así que ese día no se le suma nada más. El miércoles sale el otro vuelo, y 88 paquetes se dejan para el jueves: Matrix 13, Villa Morra 31, Palma 21, Pinoza 18 y Sajonia 5. Si las 122 personas esperan a retirar los dos juntos, el jueves hay que correr 165: Matrix 33, Multiplaza 13, Luque 6, Villa Morra 43, Palma 31, Pinoza 26 y Sajonia 13. Esa espera es más probable en Sajonia, Villa Morra, Pinoza y Palma.
+  </div>
 </main>
 </body>
 </html>
